@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>TaskFlow – Задачи</title>
+         <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <main class="tasks-container">
+            <header class="tasks-header">
+                <h1>TaskFlow</h1>
+                <div>
+                    <span id="currentUser"></span>
+                    <button id="logoutButton">
+                        Выйти
+                    </button>
+                </div>
+            </header>
+            <section class="task-form">
+                <h2>Создание задачи</h2>
+                <form id="taskForm">
+                    <div class="form-group">
+                        <label for="taskName">
+                            Название задачи
+                        </label>
+                        <input
+                            type="text"
+                            id="taskName"
+                            placeholder="Введите название задачи"
+                            required
+                            maxlength="51"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="taskPriority">
+                            Приоритет
+                        </label>
+                        <select id="taskPriority">
+                            <option value="low">
+                                Низкий
+                            </option>
+
+                            <option value="medium" selected>
+                                Средний
+                            </option>
+
+                            <option value="high">
+                                Высокий
+                            </option>
+                        </select>
+                    </div>
+                    <button type="submit">
+                        Создать задачу
+                    </button>
+                    <p id="taskMessage" class="message" role="status" aria-live="polite"></p>
+                </form>
+            </section>
+            <section>
+            <h2>Мои задачи</h2>
+            <div class="filters" role="group" aria-label="Фильтр задач">
+                <button type="button" data-filter="all" aria-pressed="true">Все</button>
+                <button type="button" data-filter="active" aria-pressed="false">Активные</button>
+                <button type="button" data-filter="completed" aria-pressed="false">Выполненные</button>
+            </div>
+            <div id="tasksList"></div>
+        </section>
+    </main>
+    <script src="js/session.js"></script>
+    <script src="js/tasks.js"></script>
+    </body>
+</html>
